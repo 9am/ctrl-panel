@@ -1,0 +1,12 @@
+:host {
+    background: unset;
+    --i-l: auto;
+}
+
+.group {
+    background: unset;
+    & > .label {
+        background: unset;
+        text-align: left;
+    }
+}

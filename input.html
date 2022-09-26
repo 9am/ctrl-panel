@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8"> <title>ctrl-panel</title>
+    <style>
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <input-button>test 123 abc</input-button>
+        <input-knob min="10" max="20" step="2"></input-knob>
+        <input-range min="1" max="10" step="2"></input-range>
+        <input-range orientation="v" min="10" max="20" step="2" value="12"></input-range>
+        <input-toggle>toggle</input-toggle>
+        <input-vector max="10"></input-vector>
+    </section>
+    <script type="module">
+        import './lib/index';
+
+        document.querySelector('section').addEventListener('INPUT', (evt) => {
+            console.log('[input]:', evt.target.tagName, evt.target.value);
+        });
+
+        document.querySelector('input-button').addEventListener('INPUT', (evt) => {
+            document.querySelector('input-range').value = 10;
+            document.querySelector('input-vector').value = [0, 10];
+        });
+    </script>
+</body>
+</html>

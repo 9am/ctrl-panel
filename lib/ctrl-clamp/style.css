@@ -1,0 +1,103 @@
+@import url('../ctrl-base/style.css');
+
+:host {
+    --size: var(--i-l, 120px);
+    --size-s: var(--i-s, 1.2em);
+    --thumb-size: 10px;
+    --thumb-size-hf: calc(var(--thumb-size) / 2);
+    --size-net: calc(var(--size) - var(--thumb-size));
+    --low-val: 0;
+    --high-val: 1;
+}
+
+.inputs {
+    position: relative;
+    width: calc(var(--size) / 2);
+    height: calc(var(--size) / 2);
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        background: lightsteelblue;
+        pointer-events: none;
+    }
+    & .input {
+        --thumb-bg: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.trigger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    cursor: ew-resize;
+    &.hidden {
+        display: none;
+    }
+}
+
+:host([orientation=v]) {
+    & .trigger {
+        cursor: ns-resize; 
+    }
+    & > .label {
+        order: 1
+    }
+    & > .inputs {
+        order: 3
+    }
+    & > .low {
+        order: 4;
+    }
+    & > .high {
+        order: 2;
+    }
+}
+
+:host([type=knob]) {
+    & .input-1 {
+        width: 80%;
+        height: 80%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: unset;
+    }
+}
+
+:host([type=range]) {
+    & .inputs {
+        width: var(--size);
+        height: var(--size-s);
+        &::after {
+            top: 0;
+            left: var(--thumb-size-hf);
+            width: calc((var(--high-val) - var(--low-val)) * (100% - var(--thumb-size)));
+            height: 100%;
+            transform: translate(calc(var(--low-val) * var(--size-net)), 0);
+        }
+    }
+}
+
+:host([type=range][orientation=v]) {
+    & .inputs {
+        width: var(--size-s);
+        height: var(--size);
+        &::after {
+            top: unset;
+            left: 0;
+            bottom: var(--thumb-size-hf);
+            height: calc((var(--high-val) - var(--low-val)) * (100% - var(--thumb-size)));
+            width: 100%;
+            transform: translate(0, calc(var(--low-val) * var(--size-net) * -1));
+        }
+    }
+}

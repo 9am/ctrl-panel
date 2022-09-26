@@ -1,0 +1,106 @@
+/* ctrl-base */
+[theme=oldschool] {
+    /* item */
+    & ctrl-clamp,
+    & ctrl-color,
+    & ctrl-slider,
+    & ctrl-switch,
+    & ctrl-text,
+    & ctrl-vector
+    {
+        &::part(label) {
+        }
+        &::part(input) {
+            --color-active: unset;
+            --color-bg: rgba(0,0,0,0.05);
+            border: 1px solid white;
+            border-style: inset;
+        }
+        &::part(detail) {
+        }
+    }
+
+    /* group */
+    &ctrl-panel,
+    & ctrl-group,
+    & ctrl-radio
+    {
+        --gap: 16px;
+        &::part(label) {
+        }
+        &::part(group) {
+            border: 2px ridge white;
+        }
+    }
+
+    /* */
+    & ctrl-slider,
+    & ctrl-clamp
+    {
+        &::part(i-thumb)::after {
+            border: 1px solid white;
+            border-style: ridge;
+        }
+        &[orientation=v] {
+            &::part(input) {
+                border-style: outset;
+            }
+            &::part(i-thumb)::after {
+                border-style: groove;
+            }
+        }
+        &[type=knob] {
+            &::part(input) {
+                border-style: inset;
+            }
+            &::part(i-thumb) {
+                border: 1px solid darkgrey;
+            }
+        }
+    }
+    & ctrl-vector {
+        &::part(i-crosshair) {
+            stroke: white;
+        }
+        &::part(i-thumb)::after {
+            border: 1px solid darkgrey;
+        }
+    }
+    & ctrl-clamp {
+        &::part(inputs) {
+            &::after {
+                background: lightgrey;
+            }
+        }
+    }
+    & ctrl-switch {
+        &::part(input) {
+            border: unset;
+        }
+        &::part(i-button) {
+            --color-active: darkgrey;
+            --color-hl: dimgrey;
+            border: 1px outset white;
+            &:active {
+                border: 1px inset white;
+            }
+        }
+        &::part(i-button-checked) {
+            color: whitesmoke;
+            border: 1px inset white;
+        }
+    }
+    & ctrl-text {
+        &::part(input) {
+            background: rgba(0,0,0,0.05);
+            &:focus {
+                outline: 1px solid black;
+            }
+        }
+    }
+    & ctrl-color {
+        &::part(inputs) {
+            border: 1px inset white;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+**/node_modules
+**/dist
+**/vite.config.ts.*.mjs
+*.tgz
+*.log
+*.swp
+.DS_Store

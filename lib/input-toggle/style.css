@@ -1,0 +1,11 @@
+@import url('../input-base/style.css');
+@import url('../input-button/style.css');
+
+.button {
+    &.checked {
+        background: var(--color-hl);
+    }
+    &:active {
+        background: var(--color-active);
+    }
+}

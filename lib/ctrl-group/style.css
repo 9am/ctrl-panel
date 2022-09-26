@@ -1,0 +1,30 @@
+/* ctrl-group */
+
+:host {
+    --i-l: 120px;
+    --i-m: calc(var(--i-l) / 2);
+    --i-s: 1.2em;
+    --gap: 8px;
+
+    display: inline-block;
+}
+
+:host([orientation=v]) {
+    & > .group {
+        flex-direction: column;
+    }
+}
+
+.group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--gap);
+    padding-block: var(--gap);
+    padding-inline: var(--gap);
+    background: rgba(0,0,0,0.05);
+    &> .label {
+        text-align: left;
+    }
+}

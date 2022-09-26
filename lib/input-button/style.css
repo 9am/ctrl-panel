@@ -1,0 +1,25 @@
+@import url('../input-base/style.css');
+
+:host {
+    height: max(var(--i-s), auto);
+}
+
+.button {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &:active {
+        background: var(--color-active);
+    }
+}
+.label {
+    user-select: none;
+    overflow-wrap: break-word;
+    text-align: center;
+    text-overflow: ellipsis
+}

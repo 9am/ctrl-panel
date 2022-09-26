@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>ctrl-panel</title>
+</head>
+<body>
+    <ctrl-panel theme="test">
+        <span slot="label">CTRL panel</span>
+        <ctrl-vector name="vector" orientation="v" default="[1,1]">vector</ctrl-vector>
+        <ctrl-text name="text">text</ctrl-text>
+        <ctrl-color name="color" orientation="v">color</ctrl-color>
+        <ctrl-color name="color" default="#ff2333">color</ctrl-color>
+        <ctrl-group name="sliderRange">
+            <span slot="label">slider range:</span>
+            <ctrl-slider name="common">common</ctrl-slider>
+            <ctrl-slider name="vertical" orientation="v">vertical</ctrl-slider>
+            <ctrl-slider name="step" min="10" max="30" step="2" default="12">step</ctrl-slider>
+        </ctrl-group>
+        <ctrl-group name="sliderKnob" orientation="v">
+            <span slot="label">slider knob:</span>
+            <ctrl-slider type="knob" name="common">common</ctrl-slider>
+            <ctrl-slider type="knob" name="vertical" orientation="v">vertical</ctrl-slider>
+            <ctrl-slider type="knob" name="step" min="10" max="30" step="2" default="12">step</ctrl-slider>
+        </ctrl-group>
+        <ctrl-group name="clamb">
+            <span slot="label">clamp:</span>
+            <ctrl-clamp type="range" name="common" default="[3,6]">common</ctrl-clamp>
+            <ctrl-clamp type="range" name="vertical" orientation="v">vertical</ctrl-clamp>
+            <ctrl-clamp type="knob" name="step" min="10" max="30" step="2">step</ctrl-clamp>
+        </ctrl-group>
+        <ctrl-group name="switch" data-type="map">
+            <span slot="label">switch:</span>
+            <ctrl-switch name="toggle" type="toggle" default="true">toggle</ctrl-switch>
+            <ctrl-switch name="range" type="range">range</ctrl-switch>
+            <ctrl-switch name="rangeVertical" type="range" orientation="v" default="true">vertical</ctrl-switch>
+        </ctrl-group>
+        <ctrl-group name="radio" data-type="array" orientation="v">
+            <span slot="label">radio:</span>
+            <ctrl-radio name="multiple" multiple>
+                <span slot="label">multiple:</span>
+                <ctrl-switch name="a" default="true">aa</ctrl-switch>
+                <ctrl-switch name="b">bbb</ctrl-switch>
+                <ctrl-switch name="c" default="true">cccc</ctrl-switch>
+            </ctrl-radio>
+            <ctrl-radio name="single">
+                <span slot="label">single:</span>
+                <ctrl-switch name="a">aa</ctrl-switch>
+                <ctrl-switch name="b">bbb</ctrl-switch>
+                <ctrl-switch name="c" default="true">cccc</ctrl-switch>
+            </ctrl-radio>
+        </ctrl-group>
+    </ctrl-panel>
+    <script type="module">
+        import './lib/index';
+
+        const panel = document.querySelector('ctrl-panel');
+        panel.addEventListener('CHANGE', (evt) => {
+            // console.table('CHANGE', evt);
+            console.log('[value:]', JSON.stringify(panel.value, null, 2));
+        });
+    </script>
+</body>
+</html>

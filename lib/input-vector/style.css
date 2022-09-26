@@ -1,0 +1,70 @@
+@import url('../input-base/style.css');
+
+:host {
+    --percent-x: 0;
+    --percent-y: 0;
+    --inner: 0;
+    --thumb-size: 10px;
+    --thumb-bg: var(--color-active);
+    width: calc(var(--size) / 2);
+    height: auto;
+    overflow: visible;
+    aspect-ratio: 1 / 1;
+    user-select: none;
+    & * {
+        user-select: none;
+    }
+}
+:host([orientation=v]) {
+    width: auto;
+    height: calc(var(--size) / 2);
+}
+.track {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    cursor: crosshair;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-bg);
+    & .crosshair {
+        stroke: var(--color-hl);
+        stroke-dasharray: 2 2;
+    }
+    &::after {
+        /* min */
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: calc(var(--inner) * 100%);
+        height: calc(var(--inner) * 100%);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--color-bg);
+    }
+    & .thumb {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transition: transform 50ms;
+        transform: translate(clamp(-50%, calc(var(--percent-x) * 50%), 50%), clamp(-50%, calc(var(--percent-y) * -50%), 50%));
+        &::after {
+            /* thumb bar */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: var(--thumb-size);
+            height: var(--thumb-size);
+            border-radius: 50%;
+            background: var(--color-thumb);
+            transform: translate(-50%, -50%);
+        }
+    }
+}

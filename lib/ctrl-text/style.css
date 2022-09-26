@@ -1,0 +1,19 @@
+@import url('../ctrl-base/style.css');
+
+:host {
+    --size: var(--i-l, 120px);
+    --size-s: var(--i-s, 1.2em);
+}
+
+.input {
+    box-sizing: border-box;
+    width: var(--size);
+    height: var(--size-s);
+    line-height: var(--size-s);
+    border: none;
+    background: rgba(255,0,0,0.1);
+    outline-offset: -1px;
+    &:focus {
+        outline: 1px solid lightsteelblue;
+    }
+}

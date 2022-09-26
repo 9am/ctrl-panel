@@ -1,0 +1,31 @@
+/* ctrl-item */
+
+:host {
+    --color-bg: rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: calc(var(--gap) / 2);
+    background: var(--color-bg);
+    & * {
+        box-sizing: border-box;
+    }
+}
+:host([orientation=v]) {
+    flex-direction: column;
+}
+.label {
+    background: var(--color-bg);
+    line-height: var(--i-s);
+    text-align: center;
+}
+.input {
+}
+.detail {
+    background: var(--color-bg);
+    line-height: var(--i-s);
+    width: max(8ch, 50px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}

@@ -1,0 +1,5 @@
+@import url('../ctrl-base/style.css');
+
+.detail {
+    height: calc(var(--i-s) * 2);
+}

@@ -1,0 +1,24 @@
+:host {
+    --size: var(--i-l, 120px);
+    --size-s: var(--i-s, 1.2em);
+    --color-bg: rgba(255,0,0,0.1);
+    --color-thumb: dimgrey;
+    --color-active: lightsteelblue;
+    --color-hl: cornflowerblue;
+    display: block;
+    width: var(--size);
+    height: var(--size-s);
+    overflow: hidden;
+    background: var(--color-bg);
+    & * {
+        box-sizing: border-box;
+        &::before,
+        &::after {
+            box-sizing: border-box;
+        }
+    }
+}
+:host([orientation=v]) {
+    width: var(--size-s);
+    height: var(--size);
+}
