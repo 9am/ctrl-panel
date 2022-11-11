@@ -3,10 +3,15 @@
 :host {
     --thumb-size: 5px;
     --translate-val: 0;
-    --rotate-start: 45deg;
+    --track-percent: 0.75;
+    --rotate-start: calc((1 - var(--track-percent)) / 2) * 1turn;
+    --q-1: 0deg;
+    --q-2: 0deg;
+    --q-3: 0deg;
+    --q-4: 0deg;
     overflow: hidden;
     width: calc(var(--size) / 2);
-    height: auto;
+    height: min-content;
     aspect-ratio: 1 / 1;
     user-select: none;
     & * {
@@ -14,7 +19,7 @@
     }
 }
 :host([orientation=v]) {
-    width: auto;
+    width: min-content;
     height: calc(var(--size) / 2);
 }
 .track {
@@ -30,7 +35,7 @@
         width: 100%;
         height: 100%;
         transition: transform 50ms;
-        transform: rotate(clamp(var(--rotate-start), calc(var(--translate-val) * 360deg), calc(360deg - var(--rotate-start))));
+        transform: scale(0.8) rotate(calc(var(--rotate-start) + var(--translate-val) * var(--track-percent) * 1turn));
         background: var(--color-bg);
         border-radius: 50%;
         &::after {
@@ -45,5 +50,47 @@
             background: var(--color-thumb);
             transform: translateX(calc(var(--thumb-size) * -0.5));
         }
+    }
+}
+
+.meter {
+    font-size: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+    transform: rotate(calc(180deg + var(--rotate-start)));
+    & .quarter {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200%;
+        height: 200%;
+        background: var(--color-active);
+        transform-origin: 0px 0px;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: scale(0.8);
+        background: var(--color-bg);
+        border-radius: 50%;
+    }
+    & .q1 {
+        transform: rotate(-90deg) skew(calc(90deg - var(--q-1)));
+    }
+    & .q2 {
+        transform: rotate(0deg) skew(calc(90deg - var(--q-2)));
+    }
+    & .q3 {
+        transform: rotate(90deg) skew(calc(90deg - var(--q-3)));
+    }
+    & .q4 {
+        transform: rotate(180deg) skew(calc(90deg - var(--q-4)));
     }
 }
