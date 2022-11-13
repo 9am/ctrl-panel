@@ -44,6 +44,7 @@
         "release": "changeset publish"
     },
     "devDependencies": {
+        "@changesets/cli": "^2.25.2",
         "postcss": "^8.4.16",
         "postcss-nesting": "^10.2.0",
         "prettier": "^2.7.1",
