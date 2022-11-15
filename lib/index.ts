@@ -17,3 +17,6 @@ export { InputKnob } from './input-knob';
 export { InputRange } from './input-range';
 export { InputToggle } from './input-toggle';
 export { InputVector } from './input-vector';
+
+// others
+export { MeterMarker } from './meter-marker';

@@ -1,17 +1,21 @@
 @import url('../input-base/style.css');
 
 :host {
-    --translate-val: 0;
+    --percent: 0;
     --thumb-size: 10px;
-    --thumb-bg: var(--color-active);
+    position: relative;
     overflow: hidden;
     user-select: none;
     & * {
         user-select: none;
     }
 }
+.meter {
+    position: absolute;
+}
 .track {
-    position: relative;
+    position: absolute;
+    z-index: 1;
     width: calc(100% - var(--thumb-size));
     height: 100%;
     transform: translateX(calc(var(--thumb-size) * 0.5));
@@ -23,10 +27,9 @@
         width: 100%;
         height: 100%;
         transition: transform 50ms;
-        transform: translateX(clamp(-100%, calc(var(--translate-val) * 100% - 100%), 0%));
-        background: var(--thumb-bg);
+        transform: translateX(clamp(-100%, calc(var(--percent) * 100% - 100%), 0%));
+        /*
         &::before {
-            /* thumb background */
             content: '';
             position: absolute;
             top: 0;
@@ -37,6 +40,7 @@
             background: var(--thumb-bg);
             transform: translateX(-50%);
         }
+        */
         &::after {
             /* thumb bar */
             content: '';
@@ -60,7 +64,7 @@
         transform: translateY(calc(var(--thumb-size) * 0.5));
         cursor: ns-resize; 
         & .thumb {
-            transform: translateY(clamp(-100%, calc(var(--translate-val) * 100% - 100%), 0%));
+            transform: translateY(clamp(-100%, calc(var(--percent) * 100% - 100%), 0%));
             &::before {
                 top: 0;
                 left: 0;

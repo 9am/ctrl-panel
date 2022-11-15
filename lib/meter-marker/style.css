@@ -1,0 +1,140 @@
+:host {
+    --color-meter: lightgrey;
+    --color-marker: #FFCECE;
+    --color-mask: white;
+
+    --offset-bg: 1;
+    --q-bg-1: 0;
+    --q-bg-2: 0;
+    --q-bg-3: 0;
+    --q-bg-4: 0;
+
+    --offset: 1;
+    --q-1: 0;
+    --q-2: 0;
+    --q-3: 0;
+    --q-4: 0;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    & * {
+        user-select: none;
+        box-sizing: border-box;
+    }
+}
+
+:host([type="range"]) {
+    & .meter {
+        --meter-trans: translateX(calc(var(--offset-bg) * 100%)) scaleX(calc((var(--q-bg-1) + var(--q-bg-2) + var(--q-bg-3) + var(--q-bg-4)) * 100%));
+        --marker-trans: translateX(calc(var(--offset) * 100%)) scaleX(calc((var(--q-1) + var(--q-2) + var(--q-3) + var(--q-4)) * 100%));
+        display: flex;
+        align-items: stretch;
+        border-radius: 0;
+        transform-origin: 0;
+        background: var(--color-meter);
+        & .quarter {
+            flex: 1 auto;
+            position: static;
+            width: auto;
+            height: auto;
+            transform: unset;
+            background: unset;
+        }
+        &.marker {
+            background: var(--color-marker);
+            transform-origin: 0;
+            & .quarter {
+                background: unset;
+            }
+            &::after {
+                content: unset;
+            }
+        }
+    }
+}
+:host([type="range"][orientation="v"]) {
+    & .meter {
+        --meter-trans: translateY(calc(var(--offset-bg) * 100%)) scaleY(calc((var(--q-bg-1) + var(--q-bg-2) + var(--q-bg-3) + var(--q-bg-4)) * 100%));
+        --marker-trans: translateY(calc(var(--offset) * 100%)) scaleY(calc((var(--q-1) + var(--q-2) + var(--q-3) + var(--q-4)) * 100%));
+        flex-direction: column-reverse;
+        transform-origin: 0 0;
+        &.marker {
+            transform-origin: 0 0;
+        }
+    }
+}
+
+.meter {
+    --meter-trans: rotate(calc(180deg + var(--offset-bg) * 1turn));
+    --marker-trans: rotate(calc(180deg + var(--offset) * 1turn));
+    --q-bg-1-trans: rotate(-90deg) skew(calc(90deg - var(--q-bg-1) * 1turn));
+    --q-bg-2-trans: rotate(0deg) skew(calc(90deg - var(--q-bg-2) * 1turn));
+    --q-bg-3-trans: rotate(90deg) skew(calc(90deg - var(--q-bg-3) * 1turn));
+    --q-bg-4-trans: rotate(180deg) skew(calc(90deg - var(--q-bg-4) * 1turn));
+    --q-1-trans: rotate(-90deg) skew(calc(90deg - var(--q-1) * 1turn));
+    --q-2-trans: rotate(0deg) skew(calc(90deg - var(--q-2) * 1turn));
+    --q-3-trans: rotate(90deg) skew(calc(90deg - var(--q-3) * 1turn));
+    --q-4-trans: rotate(180deg) skew(calc(90deg - var(--q-4) * 1turn));
+    font-size: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+    padding: 0;
+    padding-inline: 0;
+    transform: var(--meter-trans);
+    & .quarter {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1000%;
+        height: 1000%;
+        background: var(--color-meter);
+        transform-origin: 0px 0px;
+    }
+    & .q1 {
+        transform: var(--q-bg-1-trans);
+    }
+    & .q2 {
+        transform: var(--q-bg-2-trans);
+    }
+    & .q3 {
+        transform: var(--q-bg-3-trans);
+    }
+    & .q4 {
+        transform: var(--q-bg-4-trans);
+    }
+    &.marker {
+        transform: var(--marker-trans);
+        & .quarter {
+            background: var(--color-marker);
+        }
+        & .q1 {
+            transform: var(--q-1-trans);
+        }
+        & .q2 {
+            transform: var(--q-2-trans);
+        }
+        & .q3 {
+            transform: var(--q-3-trans);
+        }
+        & .q4 {
+            transform: var(--q-4-trans);
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(0.8);
+            background: var(--color-mask);
+            border-radius: 50%;
+        }
+    }
+}

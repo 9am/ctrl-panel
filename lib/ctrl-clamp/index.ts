@@ -1,6 +1,7 @@
 import { CtrlSlider, SliderType, SliderInput, SliderEmitAttr } from '../ctrl-slider';
 import { InputKnob } from '../input-knob';
 import { InputRange } from '../input-range';
+import { MeterMarker } from '../meter-marker';
 import style from './style.css?inline';
 
 export class CtrlClamp extends CtrlSlider {
@@ -8,18 +9,21 @@ export class CtrlClamp extends CtrlSlider {
     protected _detailLow: HTMLElement;
     protected _detailHigh: HTMLElement;
     protected _trigger: HTMLElement;
+    protected _meter: MeterMarker;
 
     constructor() {
         super();
         this._detailLow = this.root.querySelector('.low') as HTMLElement;
         this._detailHigh = this.root.querySelector('.high') as HTMLElement;
         this._trigger = this.root.querySelector('.trigger') as HTMLElement;
+        this._meter = this.root.querySelector('.meter') as MeterMarker;
         this.onStart = this.onStart.bind(this);
         this.onEnd = this.onEnd.bind(this);
     }
 
     protected override getTemplate() {
         const tagName = this.type === SliderType.Range ? 'input-range' : 'input-knob';
+        const offset = this.type === SliderType.Range ? 0 : 0.1;
         const [low, high] = this.default;
         return `
             <style>${style}</style>
@@ -27,6 +31,11 @@ export class CtrlClamp extends CtrlSlider {
             <em class="detail low" part="detail detail-low"></em>
             <div class="inputs" part="inputs">
                 <div class="trigger" part="trigger"></div>
+                <meter-marker
+                    class="meter" part="meter"
+                    orientation="${this.getAttribute('orientation')}"
+                    type="${this.type}"
+                    min="${offset}" max="${1 - offset}"></meter-marker>
                 <${tagName}
                     class="input input-1"
                     part="input input-1"
@@ -101,8 +110,8 @@ export class CtrlClamp extends CtrlSlider {
             })
         );
         const [lowPercent, highPercent] = this.percent;
-        this.style.setProperty('--low-val', `${lowPercent}`);
-        this.style.setProperty('--high-val', `${highPercent}`);
+        this._meter.setAttribute('start', `${lowPercent}`);
+        this._meter.setAttribute('end', `${highPercent}`);
     }
 
     override get value(): number[] {

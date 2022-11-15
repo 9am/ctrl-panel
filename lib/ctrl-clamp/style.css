@@ -5,22 +5,12 @@
     --size-s: var(--i-s, 1.2em);
     --thumb-size: 10px;
     --thumb-size-hf: calc(var(--thumb-size) / 2);
-    --size-net: calc(var(--size) - var(--thumb-size));
-    --low-val: 0;
-    --high-val: 1;
 }
 
 .inputs {
     position: relative;
     width: calc(var(--size) / 2);
     height: calc(var(--size) / 2);
-    &::after {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        background: lightsteelblue;
-        pointer-events: none;
-    }
     & .input {
         --thumb-bg: none;
         position: absolute;
@@ -28,6 +18,11 @@
         left: 0;
         width: 100%;
         height: 100%;
+        &::part(meter) {
+            --color-meter: unset;
+            --color-marker: unset;
+            --color-mask: unset;
+        }
     }
 }
 
@@ -37,7 +32,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 2;
     cursor: ew-resize;
     &.hidden {
         display: none;
@@ -64,11 +59,6 @@
 
 :host([type=knob]) {
     & .input-1 {
-        width: 80%;
-        height: 80%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         background: unset;
     }
 }
@@ -77,27 +67,15 @@
     & .inputs {
         width: var(--size);
         height: var(--size-s);
-        &::after {
-            top: 0;
-            left: var(--thumb-size-hf);
-            width: calc((var(--high-val) - var(--low-val)) * (100% - var(--thumb-size)));
-            height: 100%;
-            transform: translate(calc(var(--low-val) * var(--size-net)), 0);
-        }
     }
 }
 
 :host([type=range][orientation=v]) {
+    & .meter {
+        transform: rotate(0.5turn);
+    }
     & .inputs {
         width: var(--size-s);
         height: var(--size);
-        &::after {
-            top: unset;
-            left: 0;
-            bottom: var(--thumb-size-hf);
-            height: calc((var(--high-val) - var(--low-val)) * (100% - var(--thumb-size)));
-            width: 100%;
-            transform: translate(0, calc(var(--low-val) * var(--size-net) * -1));
-        }
     }
 }

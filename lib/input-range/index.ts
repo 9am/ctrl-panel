@@ -1,4 +1,5 @@
 import { InputBase, Value } from '../input-base';
+import { MeterMarker } from '../meter-marker';
 import { getDecimals, clamp, attr2num } from '../util';
 import style from './style.css?inline';
 
@@ -11,6 +12,7 @@ export class InputRange extends InputBase {
     protected override _value: number = 5;
     protected _track: HTMLElement;
     protected _thumb: HTMLElement;
+    protected _meter: MeterMarker;
     protected _rect: DOMRect;
     protected _percent: number = 0.5;
 
@@ -18,14 +20,21 @@ export class InputRange extends InputBase {
         super();
         this._track = this.root.querySelector('.track') as HTMLElement;
         this._thumb = this.root.querySelector('.thumb') as HTMLElement;
+        this._meter = this.root.querySelector('.meter') as MeterMarker;
         this.onDragStart = this.onDragStart.bind(this);
         this.onDrag = this.onDrag.bind(this);
         this.onDragEnd = this.onDragEnd.bind(this);
+        this.onInput = this.onInput.bind(this);
+        this.addEventListener('INPUT', this.onInput);
     }
 
     protected override getTemplate() {
         return `
             <style>${style}</style>
+            <meter-marker
+                class="meter" part="meter"
+                orientation="${this.orientation}" type="range"
+                min="0" max="1" start="0"></meter-marker>
             <div class="track" part="track">
                 <i class="thumb" part="thumb"></i>
             </div>
@@ -46,6 +55,11 @@ export class InputRange extends InputBase {
 
     disconnectedCallback() {
         this._track.removeEventListener('mousedown', this.onDragStart);
+    }
+
+    protected onInput(evt: Event) {
+        let percent = (evt as CustomEvent).detail.percent;
+        this._meter.setAttribute('end', `${percent}`);
     }
 
     protected onDragStart(evt: MouseEvent) {
@@ -74,7 +88,7 @@ export class InputRange extends InputBase {
         window.removeEventListener('mouseleave', this.onDragEnd);
     }
 
-    private clampPosition(clientX: number, clientY: number) {
+    protected clampPosition(clientX: number, clientY: number) {
         const { x, y, width, height } = this._rect;
         const isHorizontal = this.orientation === Orientation.Horizontal;
         const total = isHorizontal ? width : height;
@@ -98,7 +112,7 @@ export class InputRange extends InputBase {
             this._percent = (closestValue - this.min) / (this.max - this.min);
             this._value = closestValue;
         }
-        this._thumb.style.setProperty('--translate-val', `${this._percent}`);
+        this._thumb.style.setProperty('--percent', `${this._percent}`);
     }
     override get value(): number {
         return this._value;
