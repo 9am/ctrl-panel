@@ -1,18 +1,10 @@
 @import url('../ctrl-base/style.css');
 
-:host {
-    --size: var(--i-l, 120px);
-    --size-s: var(--i-s, 1.2em);
-    --thumb-size: 10px;
-    --thumb-size-hf: calc(var(--thumb-size) / 2);
-}
-
 .inputs {
     position: relative;
-    width: calc(var(--size) / 2);
-    height: calc(var(--size) / 2);
+    width: var(--i-m);
+    height: var(--i-m);
     & .input {
-        --thumb-bg: none;
         position: absolute;
         top: 0;
         left: 0;
@@ -58,24 +50,24 @@
 }
 
 :host([type=knob]) {
-    & .input-1 {
+    & .input-2 {
         background: unset;
+        &::part(thumb) {
+            background: unset;
+        }
     }
 }
 
 :host([type=range]) {
     & .inputs {
-        width: var(--size);
-        height: var(--size-s);
+        width: var(--i-l);
+        height: var(--i-s);
     }
 }
 
 :host([type=range][orientation=v]) {
-    & .meter {
-        transform: rotate(0.5turn);
-    }
     & .inputs {
-        width: var(--size-s);
-        height: var(--size);
+        width: var(--i-s);
+        height: var(--i-l);
     }
 }

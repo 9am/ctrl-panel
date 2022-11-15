@@ -5,9 +5,9 @@
     --percent-y: 0;
     --inner: 0;
     --thumb-size: 10px;
-    --thumb-bg: var(--color-active);
-    width: calc(var(--size) / 2);
+    width: var(--size-m);
     height: auto;
+    border-radius: 50%;
     overflow: visible;
     aspect-ratio: 1 / 1;
     user-select: none;
@@ -17,7 +17,7 @@
 }
 :host([orientation=v]) {
     width: auto;
-    height: calc(var(--size) / 2);
+    height: var(--size-m);
 }
 .track {
     position: relative;
@@ -28,22 +28,23 @@
     cursor: crosshair;
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--color-bg);
+    background-color: var(--color-2);
     & .crosshair {
-        stroke: var(--color-hl);
+        stroke: var(--color-5);
         stroke-dasharray: 2 2;
     }
-    &::after {
+    &::before {
         /* min */
         content: '';
         position: absolute;
         top: 50%;
         left: 50%;
+        z-index: -1;
         width: calc(var(--inner) * 100%);
         height: calc(var(--inner) * 100%);
         border-radius: 50%;
         transform: translate(-50%, -50%);
-        background-color: var(--color-bg);
+        background-color: var(--color-3);
     }
     & .thumb {
         position: absolute;
@@ -51,7 +52,7 @@
         left: 50%;
         width: 100%;
         height: 100%;
-        transition: transform 50ms;
+        transition: var(--trans);
         transform: translate(clamp(-50%, calc(var(--percent-x) * 50%), 50%), clamp(-50%, calc(var(--percent-y) * -50%), 50%));
         &::after {
             /* thumb bar */
@@ -63,7 +64,7 @@
             width: var(--thumb-size);
             height: var(--thumb-size);
             border-radius: 50%;
-            background: var(--color-thumb);
+            background: var(--color-5);
             transform: translate(-50%, -50%);
         }
     }

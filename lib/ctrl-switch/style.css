@@ -1,1 +1,5 @@
 @import url('../ctrl-base/style.css');
+
+input-range {
+    --thumb-size: var(--i-m);
+}

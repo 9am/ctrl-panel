@@ -1,5 +1,6 @@
 import { CtrlBase } from '../ctrl-base';
 import { Value } from '../input-base';
+import '../input-origin';
 import style from './style.css?inline';
 
 export class CtrlText extends CtrlBase {
@@ -15,16 +16,16 @@ export class CtrlText extends CtrlBase {
         return `
             <style>${style}</style>
             <label class="label" part="label"><slot></slot></label>
-            <input type="text" class="input" part="input" value="${this.default}" />
+            <input-origin type="text" class="input" part="input" value="${this.default}"></input-origin>
         `;
     }
 
     connectedCallback() {
-        this._input.addEventListener('input', this.onInput);
+        this._input.addEventListener('INPUT', this.onInput);
     }
 
     disconnectedCallback() {
-        this._input.removeEventListener('input', this.onInput);
+        this._input.removeEventListener('INPUT', this.onInput);
     }
 
     protected onInput(evt: Event) {

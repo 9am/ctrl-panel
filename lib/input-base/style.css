@@ -1,15 +1,26 @@
 :host {
-    --size: var(--i-l, 120px);
-    --size-s: var(--i-s, 1.2em);
-    --color-bg: rgba(255,0,0,0.1);
-    --color-thumb: dimgrey;
-    --color-active: lightsteelblue;
-    --color-hl: cornflowerblue;
+    /* size */
+    --size-l: var(--i-l, 120px);
+    --size-m: calc(var(--size-l) / 2);
+    --size-s: var(--i-s, 16px);
+    --size-gap: var(--i-gap, 8px);
+    /* color */
+    --h: var(--i-hue, 200deg);
+    --s: var(--i-saturation, 24%);
+    --l: var(--i-lightness, 100%);
+    --color-1: hsl(var(--h) var(--s) calc(var(--l) * 0.95));
+    --color-2: hsl(var(--h) var(--s) calc(var(--l) * 0.80));
+    --color-3: hsl(var(--h) var(--s) calc(var(--l) * 0.65));
+    --color-4: hsl(var(--h) var(--s) calc(var(--l) * 0.50));
+    --color-5: hsl(var(--h) var(--s) calc(var(--l) * 0.35));
+    /* transition */
+    --trans: var(--i-trans, transform 50ms);
+
     display: block;
-    width: var(--size);
+    width: var(--size-l);
     height: var(--size-s);
     overflow: hidden;
-    background: var(--color-bg);
+    font-size: 14px;
     & * {
         box-sizing: border-box;
         &::before,
@@ -20,5 +31,5 @@
 }
 :host([orientation=v]) {
     width: var(--size-s);
-    height: var(--size);
+    height: var(--size-l);
 }

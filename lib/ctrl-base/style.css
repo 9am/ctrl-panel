@@ -1,11 +1,23 @@
 /* ctrl-item */
 
 :host {
+    /* input */
+    --i-l: 120px;
+    --i-m: calc(var(--i-l) / 2);
+    --i-s: 16px;
+    --i-gap: 8px;
+    --i-hue: 200deg;
+    --i-saturation: 36%;
+    --i-lightness: 100%;
+    /* ctrl */
+    --gap: 8px;
     --color-bg: rgba(0,0,0,0.05);
+    --color-label: dimgrey;
+    --color-detail: dimgrey;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: calc(var(--gap) / 2);
+    gap: var(--gap);
     background: var(--color-bg);
     & * {
         box-sizing: border-box;
@@ -16,6 +28,7 @@
 }
 .label {
     background: var(--color-bg);
+    color: var(--color-label);
     line-height: var(--i-s);
     text-align: center;
 }
@@ -23,6 +36,7 @@
 }
 .detail {
     background: var(--color-bg);
+    color: var(--color-detail);
     line-height: var(--i-s);
     width: max(8ch, 50px);
     overflow: hidden;

@@ -1,7 +1,9 @@
+@import url('../input-base/style.css');
+
 :host {
-    --color-meter: lightgrey;
-    --color-marker: #FFCECE;
-    --color-mask: white;
+    --color-meter: var(--color-2, lightgrey);
+    --color-marker: var(--color-3, dimgrey);
+    --color-mask: var(--color-1, white);
 
     --offset-bg: 1;
     --q-bg-1: 0;
@@ -35,6 +37,7 @@
         border-radius: 0;
         transform-origin: 0;
         background: var(--color-meter);
+        transition: var(--trans);
         & .quarter {
             flex: 1 auto;
             position: static;
@@ -42,6 +45,7 @@
             height: auto;
             transform: unset;
             background: unset;
+            transition: var(--trans);
         }
         &.marker {
             background: var(--color-marker);
@@ -57,12 +61,12 @@
 }
 :host([type="range"][orientation="v"]) {
     & .meter {
-        --meter-trans: translateY(calc(var(--offset-bg) * 100%)) scaleY(calc((var(--q-bg-1) + var(--q-bg-2) + var(--q-bg-3) + var(--q-bg-4)) * 100%));
-        --marker-trans: translateY(calc(var(--offset) * 100%)) scaleY(calc((var(--q-1) + var(--q-2) + var(--q-3) + var(--q-4)) * 100%));
+        --meter-trans: translateY(calc(var(--offset-bg) * -100%)) scaleY(calc((var(--q-bg-1) + var(--q-bg-2) + var(--q-bg-3) + var(--q-bg-4)) * 100%));
+        --marker-trans: translateY(calc(var(--offset) * -100%)) scaleY(calc((var(--q-1) + var(--q-2) + var(--q-3) + var(--q-4)) * 100%));
         flex-direction: column-reverse;
-        transform-origin: 0 0;
+        transform-origin: 0 100%;
         &.marker {
-            transform-origin: 0 0;
+            transform-origin: 0 100%;
         }
     }
 }

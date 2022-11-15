@@ -1,0 +1,21 @@
+@import url('../input-base/style.css');
+
+:host([type=color]) {
+    width: calc(var(--size-l) / 2);
+}
+
+.origin {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.origin[type=text] {
+    border: none;
+    background: var(--color-2);
+    outline-offset: -1px;
+    &:focus {
+        outline: 1px solid var(--color-4);
+    }
+}

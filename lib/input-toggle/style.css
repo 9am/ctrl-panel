@@ -3,9 +3,11 @@
 
 .button {
     &.checked {
-        background: var(--color-hl);
-    }
-    &:active {
-        background: var(--color-active);
+        background: var(--color-5);
+        color: var(--color-1);
+        &:active {
+            background: var(--color-5);
+            color: var(--color-2);
+        }
     }
 }

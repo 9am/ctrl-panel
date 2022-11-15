@@ -41,7 +41,7 @@ export class CtrlSwitch extends CtrlBase {
                 <input-range
                     class="input"
                     part="input"
-                    exportparts="track:i-track,thumb:i-thumb"
+                    exportparts="track:i-track,thumb:i-thumb,meter:meter"
                     min="0"
                     max="1"
                     step="1"

@@ -1,4 +1,4 @@
-export * from './theme/oldschool/main.css';
+export * from './theme/oldschool.css';
 
 // ctrl
 export { CtrlClamp } from './ctrl-clamp';

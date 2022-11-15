@@ -41,7 +41,7 @@ export class CtrlSlider extends CtrlBase {
             <${tagName}
                 class="input"
                 part="input"
-                exportparts="track:i-track,thumb:i-thumb"
+                exportparts="track:i-track,thumb:i-thumb,meter:meter"
                 value="${this.default}"
             >
             </${tagName}>

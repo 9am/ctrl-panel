@@ -11,7 +11,7 @@ export class CtrlGroup extends CtrlBase {
         return `
             <style>${style}</style>
             <fieldset class="group" part="group">
-                <legend class="label" part="label"><slot name="label"></slot></legend>
+                <legend class="label" part="label g-label"><slot name="label"></slot></legend>
                 <slot></slot>
             </fieldset>
         `;

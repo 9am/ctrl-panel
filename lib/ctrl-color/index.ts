@@ -1,5 +1,6 @@
 import { CtrlBase } from '../ctrl-base';
 import { Value } from '../input-base';
+import '../input-origin';
 import style from './style.css?inline';
 
 export class CtrlColor extends CtrlBase {
@@ -19,7 +20,7 @@ export class CtrlColor extends CtrlBase {
             <label class="label" part="label"><slot></slot></label>
             <div class="inputs" part="inputs">
                 <div class="trigger" part="trigger"></div>
-                <input type="color" class="input" part="input" value="${this.default}" />
+                <input-origin type="color" class="input" part="input" value="${this.default}"></input-origin>
             </div>
             <em class="detail" part="detail"></em>
         `;

@@ -1,6 +1,0 @@
-[theme=oldschool] {
-    & ctrl-slider {
-    }
-    & ctrl-slider::part(detail) {
-    }
-}

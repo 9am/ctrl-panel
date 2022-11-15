@@ -7,17 +7,20 @@
     --rotate-start: calc((1 - var(--track-percent)) / 2) * 1turn;
     position: relative;
     overflow: hidden;
-    width: calc(var(--size) / 2);
+    width: var(--size-m);
     height: min-content;
+    border-radius: 50%;
     aspect-ratio: 1 / 1;
     user-select: none;
+    cursor: ew-resize;
     & * {
         user-select: none;
     }
 }
 :host([orientation=v]) {
     width: min-content;
-    height: calc(var(--size) / 2);
+    height: var(--size-m);
+    cursor: ns-resize;
 }
 .meter {
     position: absolute;
@@ -27,28 +30,29 @@
     z-index: 1;
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     transform: scale(0.9);
-    cursor: ew-resize;
     & .thumb {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        transition: transform 50ms;
+        transition: var(--trans);
         transform: scale(0.8) rotate(calc(var(--rotate-start) + var(--percent) * var(--track-percent) * 1turn));
-        background: var(--color-bg);
+        background: var(--color-5);
         border-radius: 50%;
         &::after {
             /* thumb bar */
             content: '';
             position: absolute;
-            top: 50%;
+            top: 48%;
             left: 50%;
             width: var(--thumb-size);
-            height: 50%;
-            border-radius: var(--thumb-size);
-            background: var(--color-thumb);
+            height: 53%;
+            border-top-left-radius: var(--thumb-size);
+            border-top-right-radius: var(--thumb-size);
+            background: var(--color-1);
             transform: translateX(calc(var(--thumb-size) * -0.5));
         }
     }

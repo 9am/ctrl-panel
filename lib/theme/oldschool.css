@@ -1,6 +1,7 @@
-/* ctrl-base */
 [theme=oldschool] {
-    /* item */
+    &ctrl-panel,
+    & ctrl-group,
+    & ctrl-radio,
     & ctrl-clamp,
     & ctrl-color,
     & ctrl-slider,
@@ -8,25 +9,16 @@
     & ctrl-text,
     & ctrl-vector
     {
+        --i-hue: 200deg;
+        --i-saturation: 0%;
+        --i-lightness: 100%;
         &::part(label) {
         }
         &::part(input) {
-            --color-active: unset;
-            --color-bg: rgba(0,0,0,0.05);
             border: 1px solid white;
             border-style: inset;
         }
         &::part(detail) {
-        }
-    }
-
-    /* group */
-    &ctrl-panel,
-    & ctrl-group,
-    & ctrl-radio
-    {
-        --gap: 16px;
-        &::part(label) {
         }
         &::part(group) {
             border: 2px ridge white;
@@ -40,14 +32,6 @@
         &::part(i-thumb)::after {
             border: 1px solid white;
             border-style: ridge;
-        }
-        &[orientation=v] {
-            &::part(input) {
-                border-style: outset;
-            }
-            &::part(i-thumb)::after {
-                border-style: groove;
-            }
         }
         &[type=knob] {
             &::part(input) {
@@ -68,18 +52,13 @@
     }
     & ctrl-clamp {
         &::part(inputs) {
-            &::after {
-                background: lightgrey;
-            }
         }
     }
     & ctrl-switch {
         &::part(input) {
-            border: unset;
+            border: none;
         }
         &::part(i-button) {
-            --color-active: darkgrey;
-            --color-hl: dimgrey;
             border: 1px outset white;
             &:active {
                 border: 1px inset white;
@@ -92,10 +71,6 @@
     }
     & ctrl-text {
         &::part(input) {
-            background: rgba(0,0,0,0.05);
-            &:focus {
-                outline: 1px solid black;
-            }
         }
     }
     & ctrl-color {

@@ -1,13 +1,2 @@
 :host {
-    font-family: 'Hack', monospace;
-    font-size: 14px;
-    & * {
-        margin: 0;
-        box-sizing: border-box;
-    }
-}
-
-::slotted(*) {
-    margin: 0;
-    box-sizing: border-box;
 }

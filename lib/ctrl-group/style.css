@@ -1,18 +1,30 @@
 /* ctrl-group */
+@import url('../ctrl-base/style.css');
 
 :host {
-    --i-l: 120px;
-    --i-m: calc(var(--i-l) / 2);
-    --i-s: 1.2em;
-    --gap: 8px;
-
+    font-family: 'Hack', monospace;
+    font-size: 14px;
     display: inline-block;
+    background: unset;
+    & * {
+        margin: 0;
+        box-sizing: border-box;
+    }
+}
+
+::slotted(*) {
+    margin: 0;
+    box-sizing: border-box;
 }
 
 :host([orientation=v]) {
     & > .group {
         flex-direction: column;
     }
+}
+
+.label {
+    background: unset;
 }
 
 .group {
@@ -23,8 +35,8 @@
     gap: var(--gap);
     padding-block: var(--gap);
     padding-inline: var(--gap);
-    background: rgba(0,0,0,0.05);
-    &> .label {
+    background: var(--color-bg);
+    & > .label {
         text-align: left;
     }
 }

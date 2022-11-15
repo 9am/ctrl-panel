@@ -24,8 +24,6 @@ export class InputRange extends InputBase {
         this.onDragStart = this.onDragStart.bind(this);
         this.onDrag = this.onDrag.bind(this);
         this.onDragEnd = this.onDragEnd.bind(this);
-        this.onInput = this.onInput.bind(this);
-        this.addEventListener('INPUT', this.onInput);
     }
 
     protected override getTemplate() {
@@ -43,7 +41,7 @@ export class InputRange extends InputBase {
 
     connectedCallback() {
         this.value = attr2num(this.getAttribute('value'), (this.max - this.min) / 2);
-        this._track.addEventListener('mousedown', this.onDragStart);
+        this.addEventListener('mousedown', this.onDragStart);
         this.dispatchEvent(
             new CustomEvent('INPUT', {
                 detail: { value: this.value, percent: this._percent },
@@ -54,12 +52,7 @@ export class InputRange extends InputBase {
     }
 
     disconnectedCallback() {
-        this._track.removeEventListener('mousedown', this.onDragStart);
-    }
-
-    protected onInput(evt: Event) {
-        let percent = (evt as CustomEvent).detail.percent;
-        this._meter.setAttribute('end', `${percent}`);
+        this.removeEventListener('mousedown', this.onDragStart);
     }
 
     protected onDragStart(evt: MouseEvent) {
@@ -113,6 +106,7 @@ export class InputRange extends InputBase {
             this._value = closestValue;
         }
         this._thumb.style.setProperty('--percent', `${this._percent}`);
+        this._meter.setAttribute('end', `${this._percent}`);
     }
     override get value(): number {
         return this._value;
