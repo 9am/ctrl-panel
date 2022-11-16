@@ -12,7 +12,7 @@
     /* ctrl */
     --gap: 8px;
     --color-bg: rgba(0,0,0,0.05);
-    --color-label: dimgrey;
+    --color-label: #444;
     --color-detail: dimgrey;
     display: flex;
     justify-content: center;

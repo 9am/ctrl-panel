@@ -41,15 +41,17 @@
         transition: var(--trans);
         transform: scale(0.8) rotate(calc(var(--rotate-start) + var(--percent) * var(--track-percent) * 1turn));
         background: var(--color-5);
+        outline-offset: -1px;
+        outline: 1px dotted var(--color-2);
         border-radius: 50%;
         &::after {
             /* thumb bar */
             content: '';
             position: absolute;
-            top: 48%;
+            top: 46%;
             left: 50%;
             width: var(--thumb-size);
-            height: 53%;
+            height: 56%;
             border-top-left-radius: var(--thumb-size);
             border-top-right-radius: var(--thumb-size);
             background: var(--color-1);

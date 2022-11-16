@@ -1,4 +1,5 @@
 export * from './theme/oldschool.css';
+export * from './theme/neumorphism.css';
 
 // ctrl
 export { CtrlClamp } from './ctrl-clamp';

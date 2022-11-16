@@ -33,28 +33,21 @@
             border: 1px solid white;
             border-style: ridge;
         }
-        &[type=knob] {
-            &::part(input) {
-                border-style: inset;
-            }
-            &::part(i-thumb) {
-                border: 1px solid darkgrey;
-            }
-        }
     }
     & ctrl-vector {
-        &::part(i-crosshair) {
-            stroke: white;
-        }
         &::part(i-thumb)::after {
             border: 1px solid darkgrey;
         }
     }
-    & ctrl-clamp {
-        &::part(inputs) {
-        }
-    }
     & ctrl-switch {
+        &[type=range] {
+            &::part(input) {
+                border: 1px inset white;
+            }
+            &::part(i-thumb)::after {
+                border: 1px ridge white;
+            }
+        }
         &::part(input) {
             border: none;
         }
