@@ -1,5 +1,11 @@
 # @9am/ctrl-panel
 
+## 1.1.0
+
+### Minor Changes
+
+-   c118677: Refactor meter
+
 ## 1.0.2
 
 ### Patch Changes
