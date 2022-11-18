@@ -2,6 +2,20 @@
     <img alt="ctrl-panel" src="https://user-images.githubusercontent.com/1435457/202668072-2d92cdc5-e723-4b1f-bc0a-b6126d5af1ba.png" width="240" />
     <h1>ctrl-panel</h1>
     <p>A simple control panel.</p>
+    <p>
+        <a href="https://github.com/9am/ctrl-panel/blob/main/LICENSE">
+            <img alt="GitHub" src="https://img.shields.io/github/license/9am/ctrl-panel?style=flat-square&color=success">
+        </a>
+        <a href="https://www.npmjs.com/package/@9am/ctrl-panel">
+            <img alt="npm" src="https://img.shields.io/npm/v/@9am/ctrl-panel?style=flat-square&color=orange">
+        </a>
+        <a href="https://www.npmjs.com/package/@9am/ctrl-panel">
+            <img alt="npm" src="https://img.shields.io/npm/dt/@9am/ctrl-panel?style=flat-square&color=blue">
+        </a>
+        <a href="https://bundlephobia.com/package/@9am/ctrl-panel@latest">
+            <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@9am/ctrl-panel?style=flat-square">
+        </a>
+    </p>
 </div>
 
 ---

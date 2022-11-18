@@ -52,7 +52,7 @@ export class CtrlColor extends CtrlBase {
         return this._input.value;
     }
     get default(): Value {
-        return this.getAttribute('default') || '';
+        return this.getAttribute('default') || '#000000';
     }
 }
 

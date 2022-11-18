@@ -44,9 +44,6 @@
             border-radius: 6px;
             border: var(--border);
             box-shadow: var(--shadow-l-up);
-            & > .label {
-                color: red;
-            }
         }
         &::part(meter) {
             --color-1: rgba(255,255,255,0.5);
@@ -54,7 +51,7 @@
             --color-3: lightgrey;
         }
         &::part(g-label) {
-            transform: translateY(80%);
+            transform: translateY(50%);
         }
         &::part(i-track) {
         }
