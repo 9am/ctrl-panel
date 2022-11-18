@@ -1,5 +1,11 @@
 # @9am/ctrl-panel
 
+## 1.1.1
+
+### Patch Changes
+
+-   7997651: Update README
+
 ## 1.1.0
 
 ### Minor Changes
