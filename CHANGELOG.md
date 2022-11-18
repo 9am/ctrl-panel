@@ -1,5 +1,11 @@
 # @9am/ctrl-panel
 
+## 1.1.2
+
+### Patch Changes
+
+-   7a59f5a: Fix theme.
+
 ## 1.1.1
 
 ### Patch Changes
