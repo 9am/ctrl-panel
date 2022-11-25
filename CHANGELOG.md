@@ -1,5 +1,11 @@
 # @9am/ctrl-panel
 
+## 1.2.0
+
+### Minor Changes
+
+-   daec308: More Features in ctrl-panel.
+
 ## 1.1.2
 
 ### Patch Changes
