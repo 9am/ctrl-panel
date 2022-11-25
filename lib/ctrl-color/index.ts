@@ -27,13 +27,13 @@ export class CtrlColor extends CtrlBase {
     }
 
     connectedCallback() {
-        this._input.addEventListener('input', this.onInput);
+        this._input.addEventListener('INPUT', this.onInput);
         this.style.setProperty('--color', this._input.value);
         this._detail.textContent = `${this._input.value}`;
     }
 
     disconnectedCallback() {
-        this._input.removeEventListener('input', this.onInput);
+        this._input.removeEventListener('INPUT', this.onInput);
     }
 
     protected onInput(evt: Event) {

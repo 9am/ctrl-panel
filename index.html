@@ -3,10 +3,17 @@
 <head>
     <meta charset="utf8">
     <title>ctrl-panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
     <ctrl-panel theme="neumorphism">
-        <span slot="label">CTRL panel</span>
+        <span slot="label">CTRL panel:</span>
         <ctrl-vector name="vector" orientation="v" default="[1,1]">vector</ctrl-vector>
         <ctrl-text name="text">text</ctrl-text>
         <ctrl-color name="color" orientation="v">color</ctrl-color>
@@ -54,10 +61,9 @@
     <script type="module">
         import './lib/index';
 
-        const panel = document.querySelector('ctrl-panel');
-        panel.addEventListener('CHANGE', (evt) => {
+        document.querySelector('ctrl-panel').addEventListener('CHANGE', (evt) => {
             // console.table('CHANGE', evt);
-            console.log('[value:]', JSON.stringify(panel.value, null, 2));
+            console.log('[panel value:]', JSON.stringify(evt.currentTarget.value, null, 2));
         });
     </script>
 </body>

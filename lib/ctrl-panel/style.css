@@ -1,2 +1,72 @@
+@import url('../ctrl-group/style.css');
+
 :host {
+    --panel-width: auto;
+    --panel-height: auto;
+    --direction: -1;
+    width: var(--panel-width);
+    height: var(--panel-height);
+    & .toggle {
+        grid-area: sub;
+        display: none;
+        z-index: 1;
+    }
+    & .group {
+        grid-area: main;
+        transition: all 0.2s linear;
+    }
+}
+
+:host(.close) {
+    & .group {
+        transform: translateY(calc(120% * var(--direction)));
+    }
+}
+
+:host([placement*="-"]) {
+    position: fixed;
+    z-index: 999;
+    max-width: 100%;
+    max-height: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: stretch;
+    gap: 0;
+    & .toggle {
+        display: block;
+        width: 100%;
+    }
+    & .group {
+        overflow: auto;
+    }
+}
+
+:host([placement^=top]) {
+    --direction: -1;
+    top: 0;
+    grid-template-rows: max-content 1fr;
+    grid-template-areas:
+        "sub"
+        "main";
+}
+
+:host([placement^=bottom]) {
+    --direction: 1;
+    bottom: 0;
+    grid-template-rows: 1fr max-content;
+    grid-template-areas:
+        "main"
+        "sub";
+}
+
+:host([placement$=left]) {
+    left: 0;
+    justify-content: start;
+    justify-items: start;
+}
+
+:host([placement$=right]) {
+    right: 0;
+    justify-content: end;
+    justify-items: end;
 }
