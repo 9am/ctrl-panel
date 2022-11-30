@@ -1,5 +1,11 @@
 # @9am/ctrl-panel
 
+## 1.3.0
+
+### Minor Changes
+
+-   3494a07: Add docs & fix bugs.
+
 ## 1.2.0
 
 ### Minor Changes
