@@ -58,9 +58,9 @@ export class InputRange extends InputBase {
     protected onDragStart(evt: MouseEvent) {
         this._rect = this._track.getBoundingClientRect();
         this.onDrag(evt);
-        window.addEventListener('mousemove', this.onDrag);
-        window.addEventListener('mouseup', this.onDragEnd);
-        window.addEventListener('mouseleave', this.onDragEnd);
+        window.addEventListener('mousemove', this.onDrag, true);
+        window.addEventListener('mouseup', this.onDragEnd, true);
+        window.addEventListener('mouseleave', this.onDragEnd, true);
     }
 
     protected onDrag(evt: MouseEvent) {
@@ -76,9 +76,9 @@ export class InputRange extends InputBase {
     }
 
     protected onDragEnd() {
-        window.removeEventListener('mousemove', this.onDrag);
-        window.removeEventListener('mouseup', this.onDragEnd);
-        window.removeEventListener('mouseleave', this.onDragEnd);
+        window.removeEventListener('mousemove', this.onDrag, true);
+        window.removeEventListener('mouseup', this.onDragEnd, true);
+        window.removeEventListener('mouseleave', this.onDragEnd, true);
     }
 
     protected clampPosition(clientX: number, clientY: number) {

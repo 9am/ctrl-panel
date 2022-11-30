@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>ctrl-switch</title>
+    <link href="./main.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>&lt;ctrl-switch&gt;</h1>
+        <a href="./index.html">back home</a>
+    </header>
+    <section>
+        <dl>
+            <dt>Default setting</dt>
+            <dd class="demo">
+                <ctrl-switch>default</ctrl-switch>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Initialize with default value</dt>
+            <dd class="demo">
+                <ctrl-switch default="true">ON</ctrl-switch>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Type `range`</dt>
+            <dd class="demo">
+                <ctrl-switch type="range" default="true">range switch:</ctrl-switch>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Type `range` vertical layout</dt>
+            <dd class="demo">
+                <ctrl-switch type="range" default="true" orientation="v">vertical:</ctrl-switch>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+    </section>
+    <script type="module" src="https://unpkg.com/@9am/ctrl-panel/dist/index.es.js"></script>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

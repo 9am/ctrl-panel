@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>ctrl-text</title>
+    <link href="./main.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>&lt;ctrl-text&gt;</h1>
+        <a href="./index.html">back home</a>
+    </header>
+    <section>
+        <dl>
+            <dt>Default setting</dt>
+            <dd class="demo">
+                <ctrl-text>default</ctrl-text>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Initialize with default value</dt>
+            <dd class="demo">
+                <ctrl-text default="This is a ctrl-text">init</ctrl-text>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Vertical layout</dt>
+            <dd class="demo">
+                <ctrl-text default="Hey..." orientation="v">vertical</ctrl-text>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+    </section>
+    <script type="module" src="https://unpkg.com/@9am/ctrl-panel/dist/index.es.js"></script>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

@@ -10,11 +10,6 @@ export const VectorEmitAttr = new Map([
     ['value', 1],
 ]);
 
-export enum VectorType {
-    Range = 'range',
-    Toggle = 'toggle',
-}
-
 export class CtrlVector extends CtrlBase {
     protected _value: Value;
     protected _input: InputVector;

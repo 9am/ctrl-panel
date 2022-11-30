@@ -99,8 +99,13 @@ export class CtrlSwitch extends CtrlBase {
     get type(): SwitchType {
         return <SwitchType>this.getAttribute('type') || SwitchType.Toggle;
     }
-    get input(): SwitchInput {
-        return this._input;
+
+    forceUpdate(val: boolean) {
+        if (this.type === SwitchType.Range) {
+            this._input.value = val ? 1 : 0;
+        } else {
+            this._input.value = val;
+        }
     }
 }
 

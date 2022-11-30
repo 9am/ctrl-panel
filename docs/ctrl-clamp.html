@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>ctrl-clamp</title>
+    <link href="./main.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>&lt;ctrl-clamp&gt;</h1>
+        <a href="./index.html">back home</a>
+    </header>
+    <section>
+        <dl>
+            <dt>Default setting</dt>
+            <dd class="demo">
+                <ctrl-clamp>default:</ctrl-clamp>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Limit value scope with `min` and `max`</dt>
+            <dd class="demo">
+                <ctrl-clamp min="-10" max="10">min-max:</ctrl-clamp>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Control number precision with `step`</dt>
+            <dd class="demo">
+                <ctrl-clamp step="any">any:</ctrl-clamp>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+            <dd class="demo">
+                <ctrl-clamp step="0.2">precision-0.1:</ctrl-clamp>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+            <dd class="demo">
+                <ctrl-clamp step="1">precision-1:</ctrl-clamp>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Initialize with default value</dt>
+            <dd class="demo">
+                <ctrl-clamp step="1" default="[2,6]">value:</ctrl-clamp>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Vertical layout</dt>
+            <dd class="demo">
+                <ctrl-clamp orientation="v">vertical:</ctrl-clamp>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Knob type</dt>
+            <dd class="demo">
+                <ctrl-clamp type="knob">knob:</ctrl-clamp>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+    </section>
+    <script type="module" src="https://unpkg.com/@9am/ctrl-panel/dist/index.es.js"></script>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

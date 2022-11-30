@@ -29,15 +29,15 @@
 ## Elements
 | Element | Screenshot | Description | Live Demo |
 | ------- | ---------- | ----------- | --------- |
-| ctrl-panel | ---------- | ----------- | --------- |
-| ctrl-group | ---------- | ----------- | --------- |
-| ctrl-slider | ![slider-range](https://user-images.githubusercontent.com/1435457/203936646-0902d3d7-0994-4b8a-a1a3-20a3f5269d00.gif)</br>![slider-knob](https://user-images.githubusercontent.com/1435457/203936642-73d7487f-e619-437c-a532-fde14d711480.gif) | ----------- | --------- |
-| ctrl-clamp | ![clamp-range](https://user-images.githubusercontent.com/1435457/203936632-fb207779-2102-412a-9506-b41829afc0f8.gif)</br>![clamp-knob](https://user-images.githubusercontent.com/1435457/203936627-f9135d59-790e-4d53-8228-7ade10f3b73d.gif) | ----------- | --------- |
-| ctrl-switch | ![switch-toggle](https://user-images.githubusercontent.com/1435457/203938021-5600c6e1-6f99-428c-99e9-66d204a5c6b0.gif)</br>![switch-range](https://user-images.githubusercontent.com/1435457/203938018-9f83e2b4-0868-4be1-a3db-a3e477b230e0.gif) | ----------- | --------- |
-| ctrl-radio | ![radio](https://user-images.githubusercontent.com/1435457/203936639-a55c9232-f851-4678-ac66-3e2f1ea822cf.gif) | ----------- | --------- |
-| ctrl-vector | ![vector](https://user-images.githubusercontent.com/1435457/203936657-13ca68fe-7c1b-4f6e-a2c1-e84bacfc829e.gif) | ----------- | --------- |
-| ctrl-text | ![text](https://user-images.githubusercontent.com/1435457/203936654-3a78f2df-a675-43d6-a748-ee0842081067.gif) | ----------- | --------- |
-| ctrl-color | ![color](https://user-images.githubusercontent.com/1435457/203936634-68099376-731f-4442-aae5-918e606c4b09.gif) | ----------- | --------- |
+| ctrl-panel | ---------- | The root element. | [demo](http://9am.github.io/ctrl-panel/ctrl-panel.html) |
+| ctrl-group | ---------- | Group ctrl-* together to shape the value. | [demo](http://9am.github.io/ctrl-panel/ctrl-group.html) |
+| ctrl-slider | ![slider-range](https://user-images.githubusercontent.com/1435457/203936646-0902d3d7-0994-4b8a-a1a3-20a3f5269d00.gif)</br>![slider-knob](https://user-images.githubusercontent.com/1435457/203936642-73d7487f-e619-437c-a532-fde14d711480.gif) | A numblic slider. | [demo](http://9am.github.io/ctrl-panel/ctrl-slider.html) |
+| ctrl-clamp | ![clamp-range](https://user-images.githubusercontent.com/1435457/203936632-fb207779-2102-412a-9506-b41829afc0f8.gif)</br>![clamp-knob](https://user-images.githubusercontent.com/1435457/203936627-f9135d59-790e-4d53-8228-7ade10f3b73d.gif) | Select a tuple low-high value. | [demo](http://9am.github.io/ctrl-panel/ctrl-clamp.html) |
+| ctrl-switch | ![switch-toggle](https://user-images.githubusercontent.com/1435457/203938021-5600c6e1-6f99-428c-99e9-66d204a5c6b0.gif)</br>![switch-range](https://user-images.githubusercontent.com/1435457/203938018-9f83e2b4-0868-4be1-a3db-a3e477b230e0.gif) | A ON/OFF switch. | [demo](http://9am.github.io/ctrl-panel/ctrl-switch.html) |
+| ctrl-radio | ![radio](https://user-images.githubusercontent.com/1435457/203936639-a55c9232-f851-4678-ac66-3e2f1ea822cf.gif) | Multiple/Single switch. | [demo](http://9am.github.io/ctrl-panel/ctrl-radio.html) |
+| ctrl-vector | ![vector](https://user-images.githubusercontent.com/1435457/203936657-13ca68fe-7c1b-4f6e-a2c1-e84bacfc829e.gif) | Select a tuple vector on a 2D surface. | [demo](http://9am.github.io/ctrl-panel/ctrl-vector.html) |
+| ctrl-text | ![text](https://user-images.githubusercontent.com/1435457/203936654-3a78f2df-a675-43d6-a748-ee0842081067.gif) | Text input. | [demo](http://9am.github.io/ctrl-panel/ctrl-text.html) |
+| ctrl-color | ![color](https://user-images.githubusercontent.com/1435457/203936634-68099376-731f-4442-aae5-918e606c4b09.gif) | Color picker. | [demo](http://9am.github.io/ctrl-panel/ctrl-color.html) |
 
 
 ## Usage

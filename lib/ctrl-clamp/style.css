@@ -2,8 +2,8 @@
 
 .inputs {
     position: relative;
-    width: var(--i-m);
-    height: var(--i-m);
+    width: var(--i-l);
+    height: var(--i-s);
     & .input {
         position: absolute;
         top: 0;
@@ -50,6 +50,10 @@
 }
 
 :host([type=knob]) {
+    & .inputs {
+        width: var(--i-m);
+        height: var(--i-m);
+    }
     & .input-2 {
         background: unset;
         &::part(thumb) {
@@ -58,14 +62,7 @@
     }
 }
 
-:host([type=range]) {
-    & .inputs {
-        width: var(--i-l);
-        height: var(--i-s);
-    }
-}
-
-:host([type=range][orientation=v]) {
+:host([orientation=v]) {
     & .inputs {
         width: var(--i-s);
         height: var(--i-l);

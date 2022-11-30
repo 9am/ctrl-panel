@@ -6,15 +6,15 @@
     --i-m: calc(var(--i-l) / 2);
     --i-s: 16px;
     --i-gap: 8px;
-    --i-hue: 200deg;
+    --i-hue: 240deg;
     --i-saturation: 36%;
     --i-lightness: 100%;
     /* ctrl */
-    --gap: 8px;
+    --gap: 16px;
     --color-bg: rgba(0,0,0,0.05);
     --color-label: #444;
     --color-detail: dimgrey;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     gap: var(--gap);

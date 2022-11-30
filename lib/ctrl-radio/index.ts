@@ -37,24 +37,35 @@ export class CtrlRadio extends CtrlGroup {
             return;
         }
         evt.stopPropagation();
-        if (!this.multiple) {
-            this._ctrls.forEach((ctrl) => {
-                if (ctrl.name !== (evt as CustomEvent).detail.name) {
-                    ctrl.input.value = false;
+        window.queueMicrotask(() => {
+            // deal with user input first
+            if (!this.multiple) {
+                const val = (evt as CustomEvent).detail.value;
+                if (val) {
+                    this._ctrls.forEach((ctrl) => {
+                        if (ctrl.name !== (evt as CustomEvent).detail.name) {
+                            (ctrl as CtrlSwitch).forceUpdate(false);
+                        }
+                    });
+                } else {
+                    const hasTrue = this._ctrls
+                        .filter((ctrl) => ctrl.name !== (target as CtrlSwitch).name)
+                        .some((ctrl) => ctrl.value);
+                    if (hasTrue) {
+                        return;
+                    } else {
+                        (target as CtrlSwitch).forceUpdate(true);
+                    }
                 }
-            });
-            if (!(evt as CustomEvent).detail.value) {
-                (target as CtrlSwitch).input.value = true;
-                return;
             }
-        }
-        this.dispatchEvent(
-            new CustomEvent('CHANGE', {
-                detail: { name: this.name, value: this.value },
-                bubbles: true,
-                composed: true,
-            })
-        );
+            this.dispatchEvent(
+                new CustomEvent('CHANGE', {
+                    detail: { name: this.name, value: this.value },
+                    bubbles: true,
+                    composed: true,
+                })
+            );
+        });
     }
 
     override get value(): string[] | string {

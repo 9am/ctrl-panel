@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>ctrl-panel</title>
+    <link href="./main.css" rel="stylesheet">
+    <link href="https://unpkg.com/@9am/ctrl-panel/dist/theme.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>&lt;ctrl-panel&gt;</h1>
+        <a href="./index.html">back home</a>
+    </header>
+    <section>
+        <dl>
+            <dt>Default setting</dt>
+            <dd class="demo">
+                <ctrl-panel>
+                    <span slot="label">panel map:</span>
+                    <ctrl-slider name="a" type="knob" step="1">a</ctrl-slider>
+                    <ctrl-slider name="b" type="knob" step="1">b</ctrl-slider>
+                </ctrl-panel>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Themes</dt>
+            <dd class="demo">
+                <ctrl-panel>
+                    <span slot="label">ctrl-panel:</span>
+                    <ctrl-radio name="theme" orientation="v">
+                        <span slot="label">theme:</span>
+                        <ctrl-switch name="flat" default="true">flat</ctrl-switch>
+                        <ctrl-switch name="oldschool">oldschool</ctrl-switch>
+                        <ctrl-switch name="neumorphism">neumorphism</ctrl-switch>
+                    </ctrl-radio>
+                </ctrl-panel>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>With open/close</dt>
+            <dd class="demo">
+                <ctrl-panel placement="top-right">
+                    <span slot="label">panel open/close:</span>
+                    <ctrl-slider name="a" type="knob" step="1" orientation="v">a</ctrl-slider>
+                    <ctrl-slider name="b" type="knob" step="1" orientation="v">b</ctrl-slider>
+                </ctrl-panel>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+    </section>
+    <script type="module" src="https://unpkg.com/@9am/ctrl-panel/dist/index.es.js"></script>
+    <script type="module">
+        const onUpdate = (evt) => {
+            const target = evt.currentTarget;
+            const value = target.value;
+            const pre = target.nextElementSibling.querySelector('pre');
+            pre.textContent = JSON.stringify(value, null, 2);
+            if (value.theme) {
+                [...document.querySelectorAll('ctrl-panel')].forEach(panel => {
+                    panel.setAttribute('theme', value.theme);
+                });
+            }
+        };
+        [...document.querySelectorAll('.demo > ctrl-panel')].forEach(panel => {
+            panel.addEventListener('CHANGE', onUpdate);
+        });
+    </script>
+</body>
+</html>

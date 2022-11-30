@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>ctrl-group</title>
+    <link href="./main.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>&lt;ctrl-group&gt;</h1>
+        <a href="./index.html">back home</a>
+    </header>
+    <section>
+        <dl>
+            <dt>Default setting</dt>
+            <dd class="demo">
+                <ctrl-group>
+                    <span slot="label">group map:</span>
+                    <ctrl-slider name="a" type="knob" step="1">a</ctrl-slider>
+                    <ctrl-slider name="b" type="knob" step="1">b</ctrl-slider>
+                </ctrl-group>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Shape the value as array</dt>
+            <dd class="demo">
+                <ctrl-group data-type="array">
+                    <span slot="label">group array:</span>
+                    <ctrl-slider name="a" type="knob" step="1">a</ctrl-slider>
+                    <ctrl-slider name="b" type="knob" step="1">b</ctrl-slider>
+                </ctrl-group>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Nested</dt>
+            <dd class="demo">
+                <ctrl-group>
+                    <span slot="label">group:</span>
+                    <ctrl-group name="g1">
+                        <span slot="label">g1:</span>
+                        <ctrl-slider name="a" step="1">a</ctrl-slider>
+                        <ctrl-slider name="b" step="1">b</ctrl-slider>
+                        <ctrl-group name="g2" data-type="array">
+                            <span slot="label">g2:</span>
+                            <ctrl-slider name="c" step="1">c</ctrl-slider>
+                            <ctrl-slider name="d" step="1">d</ctrl-slider>
+                        </ctrl-group>
+                    </ctrl-group>
+                </ctrl-group>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Vertical layout</dt>
+            <dd class="demo">
+                <ctrl-group orientation="v">
+                    <span slot="label">group:</span>
+                    <ctrl-group name="g1" orientation="v">
+                        <span slot="label">g1:</span>
+                        <ctrl-slider name="a" step="1">a</ctrl-slider>
+                        <ctrl-slider name="b" step="1">b</ctrl-slider>
+                        <ctrl-group name="g2" orientation="v" data-type="array">
+                            <span slot="label">g2:</span>
+                            <ctrl-slider name="c" step="1">c</ctrl-slider>
+                            <ctrl-slider name="d" step="1">d</ctrl-slider>
+                        </ctrl-group>
+                    </ctrl-group>
+                </ctrl-group>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+    </section>
+    <script type="module" src="https://unpkg.com/@9am/ctrl-panel/dist/index.es.js"></script>
+    <script type="module">
+        const onUpdate = (evt) => {
+            const target = evt.currentTarget;
+            const value = target.value;
+            const pre = target.nextElementSibling.querySelector('pre');
+            pre.textContent = JSON.stringify(value, null, 2);
+        };
+        [...document.querySelectorAll('.demo > ctrl-group')].forEach(group => {
+            group.addEventListener('CHANGE', onUpdate);
+        });
+    </script>
+</body>
+</html>

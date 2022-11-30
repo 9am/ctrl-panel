@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>ctrl-slider</title>
+    <link href="./main.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>&lt;ctrl-slider&gt;</h1>
+        <a href="./index.html">back home</a>
+    </header>
+    <section>
+        <dl>
+            <dt>Default setting</dt>
+            <dd class="demo">
+                <ctrl-slider>default:</ctrl-slider>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Limit value scope with `min` and `max`</dt>
+            <dd class="demo">
+                <ctrl-slider min="-10" max="10">min-max:</ctrl-slider>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Control number precision with `step`</dt>
+            <dd class="demo">
+                <ctrl-slider step="any">any:</ctrl-slider>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+            <dd class="demo">
+                <ctrl-slider step="0.2">precision-0.1:</ctrl-slider>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+            <dd class="demo">
+                <ctrl-slider step="0.02">precision-0.01:</ctrl-slider>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Initialize with default value</dt>
+            <dd class="demo">
+                <ctrl-slider default="8">value:</ctrl-slider>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Vertical layout</dt>
+            <dd class="demo">
+                <ctrl-slider orientation="v">vertical:</ctrl-slider>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+        <dl>
+            <dt>Knob type</dt>
+            <dd class="demo">
+                <ctrl-slider type="knob">knob:</ctrl-slider>
+                <ctrl-group><span slot="label">[value]:</span><pre></pre></ctrl-group>
+            </dd>
+        </dl>
+    </section>
+    <script type="module" src="https://unpkg.com/@9am/ctrl-panel/dist/index.es.js"></script>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
