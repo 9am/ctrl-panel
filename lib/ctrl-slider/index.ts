@@ -88,7 +88,7 @@ export class CtrlSlider extends CtrlBase {
         return parseFloat(this.getAttribute('step')!) || 1;
     }
     get default(): Value {
-        return attr2num(this.getAttribute('default'), (this.max - this.min) / 2);
+        return attr2num(this.getAttribute('default'), (this.max + this.min) / 2);
     }
     get type(): SliderType {
         return <SliderType>this.getAttribute('type') || SliderType.Range;

@@ -1,6 +1,6 @@
 <div align="center">
     <img alt="ctrl-panel" src="https://user-images.githubusercontent.com/1435457/202668072-2d92cdc5-e723-4b1f-bc0a-b6126d5af1ba.png" width="240" />
-    <h1>ctrl-panel</h1>
+    <h1>&lt;ctrl-panel&gt;</h1>
     <p>A simple control panel.</p>
     <p>
         <a href="https://github.com/9am/ctrl-panel/blob/main/LICENSE">
@@ -20,6 +20,10 @@
 
 ---
 
+## Why Build This
+See my blog post on [9am.github.io](https://9am.github.io/)
+> [Every Animation Lover Needs A Control Panel](https://github.com/9am/9am.github.io/issues/10)
+
 ## Features
 - **9 custom elements** to choose.
 - **3 themes** out of the box.
@@ -27,17 +31,17 @@
 - Customize or make your own theme with **CSS properties.**
 
 ## Elements
-| Element | Screenshot | Description | Live Demo |
-| ------- | ---------- | ----------- | --------- |
-| ctrl-panel | ---------- | The root element. | [demo](http://9am.github.io/ctrl-panel/ctrl-panel.html) |
-| ctrl-group | ---------- | Group ctrl-* together to shape the value. | [demo](http://9am.github.io/ctrl-panel/ctrl-group.html) |
-| ctrl-slider | ![slider-range](https://user-images.githubusercontent.com/1435457/203936646-0902d3d7-0994-4b8a-a1a3-20a3f5269d00.gif)</br>![slider-knob](https://user-images.githubusercontent.com/1435457/203936642-73d7487f-e619-437c-a532-fde14d711480.gif) | A numblic slider. | [demo](http://9am.github.io/ctrl-panel/ctrl-slider.html) |
-| ctrl-clamp | ![clamp-range](https://user-images.githubusercontent.com/1435457/203936632-fb207779-2102-412a-9506-b41829afc0f8.gif)</br>![clamp-knob](https://user-images.githubusercontent.com/1435457/203936627-f9135d59-790e-4d53-8228-7ade10f3b73d.gif) | Select a tuple low-high value. | [demo](http://9am.github.io/ctrl-panel/ctrl-clamp.html) |
-| ctrl-switch | ![switch-toggle](https://user-images.githubusercontent.com/1435457/203938021-5600c6e1-6f99-428c-99e9-66d204a5c6b0.gif)</br>![switch-range](https://user-images.githubusercontent.com/1435457/203938018-9f83e2b4-0868-4be1-a3db-a3e477b230e0.gif) | A ON/OFF switch. | [demo](http://9am.github.io/ctrl-panel/ctrl-switch.html) |
-| ctrl-radio | ![radio](https://user-images.githubusercontent.com/1435457/203936639-a55c9232-f851-4678-ac66-3e2f1ea822cf.gif) | Multiple/Single switch. | [demo](http://9am.github.io/ctrl-panel/ctrl-radio.html) |
-| ctrl-vector | ![vector](https://user-images.githubusercontent.com/1435457/203936657-13ca68fe-7c1b-4f6e-a2c1-e84bacfc829e.gif) | Select a tuple vector on a 2D surface. | [demo](http://9am.github.io/ctrl-panel/ctrl-vector.html) |
-| ctrl-text | ![text](https://user-images.githubusercontent.com/1435457/203936654-3a78f2df-a675-43d6-a748-ee0842081067.gif) | Text input. | [demo](http://9am.github.io/ctrl-panel/ctrl-text.html) |
-| ctrl-color | ![color](https://user-images.githubusercontent.com/1435457/203936634-68099376-731f-4442-aae5-918e606c4b09.gif) | Color picker. | [demo](http://9am.github.io/ctrl-panel/ctrl-color.html) |
+| Element | Screenshot | Varient | Description | Live Demo |
+| ------- | ---------- | ------- | ----------- | --------- |
+| ctrl-panel | ------- | ------- | The root element. | [demo](http://9am.github.io/ctrl-panel/ctrl-panel.html) |
+| ctrl-group | ------- | ------- | Group ctrl-* together to shape the value. | [demo](http://9am.github.io/ctrl-panel/ctrl-group.html) |
+| ctrl-slider | ![slider-1](https://user-images.githubusercontent.com/1435457/233948538-65ea017b-fddd-4026-a8a8-a739f199533a.gif) | ![slider-2](https://user-images.githubusercontent.com/1435457/233948534-3aa95a1c-5043-43d8-a8e7-5c81cdce2357.gif) | A numblic slider. | [demo](http://9am.github.io/ctrl-panel/ctrl-slider.html) |
+| ctrl-clamp | ![clamp-1](https://user-images.githubusercontent.com/1435457/233948483-22b0851b-c0d9-4ba0-82b4-5ba7993af5b4.gif) | ![clamp-2](https://user-images.githubusercontent.com/1435457/233948511-3f689958-500c-4e6a-83a2-c278cbc61b1b.gif) | Select a tuple low-high value. | [demo](http://9am.github.io/ctrl-panel/ctrl-clamp.html) |
+| ctrl-switch | ![switch-1](https://user-images.githubusercontent.com/1435457/233948542-e5611014-c9c9-4b3d-a2c0-be53745bd63e.gif) | ![switch-2](https://user-images.githubusercontent.com/1435457/233948545-6b2efbe3-ae87-4602-98f8-ded0537a6cae.gif) | A ON/OFF switch. | [demo](http://9am.github.io/ctrl-panel/ctrl-switch.html) |
+| ctrl-radio | ![radio-1](https://user-images.githubusercontent.com/1435457/233948532-03a2f23c-41d3-4291-b8b7-fe770750b869.gif) | ![radio-2](https://user-images.githubusercontent.com/1435457/233948528-d19f430a-9681-4658-a23b-25f4f404f8e4.gif) | Multiple/Single switch. | [demo](http://9am.github.io/ctrl-panel/ctrl-radio.html) |
+| ctrl-vector | ![vector](https://user-images.githubusercontent.com/1435457/233948552-672f7051-f07a-4c4c-950c-f7c8e5ccb122.gif) | | Select a tuple vector on a 2D surface. | [demo](http://9am.github.io/ctrl-panel/ctrl-vector.html) |
+| ctrl-text | ![text](https://user-images.githubusercontent.com/1435457/233948548-1088ed00-5bba-4d52-a64c-95341679c8d0.gif) | | Text input. | [demo](http://9am.github.io/ctrl-panel/ctrl-text.html) |
+| ctrl-color | ![color](https://user-images.githubusercontent.com/1435457/233948524-3f5b06b2-fdbf-4586-8892-d76fc0d6cfc6.gif) | | Color picker. | [demo](http://9am.github.io/ctrl-panel/ctrl-color.html) |
 
 
 ## Usage

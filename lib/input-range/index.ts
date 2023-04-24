@@ -40,7 +40,7 @@ export class InputRange extends InputBase {
     }
 
     connectedCallback() {
-        this.value = attr2num(this.getAttribute('value'), (this.max - this.min) / 2);
+        this.value = attr2num(this.getAttribute('value'), (this.max + this.min) / 2);
         this.addEventListener('mousedown', this.onDragStart);
         this.dispatchEvent(
             new CustomEvent('INPUT', {

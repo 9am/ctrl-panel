@@ -49,6 +49,13 @@
     }
 }
 
+:host([orientation=v]) {
+    & .inputs {
+        width: var(--i-s);
+        height: var(--i-l);
+    }
+}
+
 :host([type=knob]) {
     & .inputs {
         width: var(--i-m);
@@ -59,12 +66,5 @@
         &::part(thumb) {
             background: unset;
         }
-    }
-}
-
-:host([orientation=v]) {
-    & .inputs {
-        width: var(--i-s);
-        height: var(--i-l);
     }
 }
