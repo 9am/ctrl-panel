@@ -1,5 +1,11 @@
 # @9am/ctrl-panel
 
+## 1.3.1
+
+### Patch Changes
+
+-   9d155b0: Fix default value bug in ctrl-slider.
+
 ## 1.3.0
 
 ### Minor Changes
